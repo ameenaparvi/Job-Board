@@ -10,10 +10,13 @@ const NavBar = () => {
                 <Toolbar>
                     <h3>Job-Board</h3> &nbsp;&nbsp;
                     <Link to="/a">
-                      <Button variant="contained" color="secondary">AdminPage</Button>&nbsp;
+                      <Button variant="contained" color="secondary">Admin Page</Button>&nbsp;&nbsp;
                     </Link>
                     <Link to="/h">
-                      <Button variant="contained" color="secondary">HomePage</Button>&nbsp;
+                      <Button variant="contained" color="secondary">Home Page</Button>&nbsp;&nbsp;
+                    </Link>
+                    <Link to="/s">
+                      <Button variant="contained" color="secondary">Search Jobs</Button>&nbsp;&nbsp;
                     </Link>
 
                 </Toolbar>

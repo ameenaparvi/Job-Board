@@ -6,6 +6,7 @@ import { AdminPage } from './components/pages/AdminPage'
 import NavBar from './components/pages/NavBar'
 import { Route, Routes } from 'react-router-dom'
 import { HomePage } from './components/pages/HomePage'
+import SearchJobs from './components/SearchJobs'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Routes>
                  <Route path="/a" element={<AdminPage/>}/>
                  <Route path="/h" element={<HomePage/>}/>
+                 <Route path="/s" element={<SearchJobs/>}/>
           </Routes>
     </>
   )
