@@ -5,6 +5,7 @@ import './App.css'
 import { AdminPage } from './components/pages/AdminPage'
 import NavBar from './components/pages/NavBar'
 import { Route, Routes } from 'react-router-dom'
+import { HomePage } from './components/pages/HomePage'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <NavBar/>
           <Routes>
                  <Route path="/a" element={<AdminPage/>}/>
+                 <Route path="/h" element={<HomePage/>}/>
           </Routes>
     </>
   )
