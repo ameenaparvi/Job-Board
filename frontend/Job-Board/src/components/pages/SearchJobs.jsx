@@ -1,6 +1,6 @@
 import { Box, Button, CardContent, Grid, MenuItem, TextField, Typography } from '@mui/material';
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const SearchJobs = () => {
   
