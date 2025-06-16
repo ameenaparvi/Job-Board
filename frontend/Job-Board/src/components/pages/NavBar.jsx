@@ -12,6 +12,9 @@ const NavBar = () => {
                     <Link to="/a">
                       <Button variant="contained" color="secondary">AdminPage</Button>&nbsp;
                     </Link>
+                    <Link to="/h">
+                      <Button variant="contained" color="secondary">HomePage</Button>&nbsp;
+                    </Link>
 
                 </Toolbar>
             </AppBar>
