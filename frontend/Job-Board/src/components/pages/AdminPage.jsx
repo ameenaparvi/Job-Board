@@ -31,6 +31,26 @@ export const AdminPage = () => {
       })
      }
     }
+
+    const deleteHandler = () => {
+      if (location.state !== null) {
+        const confirmDelete = window.confirm("Are you sure you want to delete this job?");
+        if (confirmDelete) {
+          axios.delete(`http://localhost:3004/delete/${location.state.job._id}`)/*need to change the path later*/
+            .then((res) => {
+              alert(res.data.message);
+              navigate("/h"); /*need to change later*/
+            })
+            .catch((err) => {
+              console.error(err);
+              alert("Failed to delete the job");
+            });
+        }
+      } else {
+        alert("No job selected to delete.");
+      }
+    };
+    
     useEffect(()=>{
       if(location.state!==null){
         setJob({
@@ -54,7 +74,8 @@ export const AdminPage = () => {
       <TextField label="Company" name="company" variant="outlined" value={job.company} onChange={inputHandler}/><br/><br/>
       <TextField label="Location" name="location" variant="outlined" value={job.location} onChange={inputHandler}/><br/><br/>
       <TextField label="Role" name="role" variant="outlined" value={job.role} onChange={inputHandler}/><br/><br/>
-      <Button type="submit" variant="contained" onClick={addHandler}>Post Job</Button>
+      <Button type="submit" variant="contained" onClick={addHandler}>Post Job</Button>&nbsp; &nbsp;
+      <Button type="submit" variant="contained" onClick={deleteHandler}>Delete Job</Button>
       
       </Paper>
       </Box>
