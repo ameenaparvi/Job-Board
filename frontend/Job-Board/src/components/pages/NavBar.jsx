@@ -1,36 +1,51 @@
-import { AppBar, Box, Button, Toolbar } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div>
-        <Box sx={{flexGro: 1}}>
-            <AppBar>
-                <Toolbar>
-                    <h3>Job-Board</h3> &nbsp;&nbsp;
-                    <Link to="/a">
-                      <Button variant="contained" color="secondary">Admin Page</Button>&nbsp;&nbsp;
-                    </Link>
-                    <Link to="/h">
-                      <Button variant="contained" color="secondary">Home Page</Button>&nbsp;&nbsp;
-                    </Link>
-                    <Link to="/s">
-                      <Button variant="contained" color="secondary">Search Jobs</Button>&nbsp;&nbsp;
-                    </Link>
-                    <Link to="/r">
-                      <Button variant="contained" color="secondary">Register</Button>&nbsp;&nbsp;
-                    </Link>
+    <Box
+      sx={{
+        margin: '1rem',
+        borderRadius: '16px', // ⬅️ Curve the whole AppBar
+        overflow: 'hidden',   // Ensures children respect the rounded corners
+      }}
+    >
+      <AppBar position="static" color="primary" sx={{ borderRadius: '16px' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          {/* Logo / Title */}
+          <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#fff' }}>
+            JobBoard
+          </Typography>
 
-                </Toolbar>
-            </AppBar>
-        </Box>
-        
-        
-        
-        
-    </div>
-  )
-}
+          {/* Navigation Buttons */}
+          <Box sx={{ display: 'flex', gap: 2 }}>
+            <Link to="/h" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
+                Home
+              </Button>
+            </Link>
+            
+            <Link to="/l" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
+                Login
+              </Button>
+            </Link>
+            <Link to="/r" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
+                Register
+              </Button>
+            </Link>
+            <Link to="/a" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
+                Admin Page
+              </Button>
+            </Link>
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+};
 
-export default NavBar
+export default NavBar;

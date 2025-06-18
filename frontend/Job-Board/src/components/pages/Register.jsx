@@ -1,26 +1,97 @@
-import React from 'react'
-import { Alert, Button, Paper, TextField, Typography } from '@mui/material'
-import Box from '@mui/material/Box';
+import React from 'react';
+import {
+  Alert,
+  Button,
+  Paper,
+  TextField,
+  Typography,
+  Box
+} from '@mui/material';
+
 const Register = () => {
   return (
-    <div>
-          <br/><br/> 
-                <Box component="form" sx={{ p: 6,m:3,display: 'flex',justifyContent: 'center', alignItems: 'center' }}>  
+    <Box
+      sx={{
+        minHeight: '100vh',
+        backgroundColor: '#f0f4f8',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: 2,
+      }}
+    >
+      <Paper
+        elevation={6}
+        sx={{
+          p: 5,
+          width: { xs: '100%', sm: '70%', md: '50%' },
+          borderRadius: 5,
+          backgroundColor: '#ffffff',
+        }}
+      >
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          sx={{ fontWeight: 'bold', color: '#1976d2' }}
+        >
+          New Registration
+        </Typography>
 
-      <Paper elevation={8} sx={{borderRadius: 5,width: '50%',}}>   
-      
-      <Typography variant="h5" gutterBottom>New Registration</Typography>
-      <TextField label="Name" name="Name" variant="outlined" required /><br/><br/>
-      <TextField label="Age" name="Age" variant="outlined" /><br/><br/>
-      <TextField label="Place" name="Place" variant="outlined" /><br/><br/>
-      <TextField label="Qualification" name="Qualification" variant="outlined" required/><br/><br/>
-      <TextField label="email" name="email" variant="outlined" required/><br/><br/>
-      <Button type="submit" variant="contained" >Submit</Button>
-      
+        <Box component="form" sx={{ mt: 3 }}>
+          <TextField
+            label="Name"
+            name="Name"
+            variant="outlined"
+            fullWidth
+            required
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Age"
+            name="Age"
+            type="number"
+            variant="outlined"
+            fullWidth
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Place"
+            name="Place"
+            variant="outlined"
+            fullWidth
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Qualification"
+            name="Qualification"
+            variant="outlined"
+            fullWidth
+            required
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Email"
+            name="email"
+            type="email"
+            variant="outlined"
+            fullWidth
+            required
+            sx={{ mb: 3 }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            size="large"
+            sx={{ borderRadius: 2 }}
+          >
+            Submit
+          </Button>
+        </Box>
       </Paper>
-      </Box>
-    </div>
-  )
-}
+    </Box>
+  );
+};
 
-export default Register
+export default Register;
