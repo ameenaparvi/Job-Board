@@ -15,7 +15,7 @@ const Login = () => {
         justifyContent: 'center',
       }}
     >
-      <Paper elevation={4} sx={{ padding: 4, width: 350, backgroundColor: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(4px)' }}>
+      <Paper elevation={4} sx={{ padding: 4, width: 350, backgroundColor: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(4px)' ,borderRadius: 4}}>
         <Typography variant="h4" align="center" gutterBottom>
           Login
         </Typography>

@@ -4,13 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <Box
-      sx={{
-        margin: '1rem',
-        borderRadius: '16px', // ⬅️ Curve the whole AppBar
-        overflow: 'hidden',   // Ensures children respect the rounded corners
-      }}
-    >
+    <Box sx={{ margin: '1rem',borderRadius: '16px',overflow: 'hidden',  }}>
       <AppBar position="static" color="primary" sx={{ borderRadius: '16px' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Logo / Title */}

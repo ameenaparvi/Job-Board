@@ -67,85 +67,35 @@ export const AdminPage = () => {
         alignItems: 'center',
         justifyContent: 'center',
         px: 2
-      }}
-    >
-      <Paper
-        elevation={8}
+      }}>
+      <Paper elevation={8}
         sx={{
           borderRadius: 4,
           p: 5,
           width: { xs: '100%', sm: '80%', md: '50%' },
           backgroundColor: '#fff',
-        }}
-      >
-        <Typography
-          variant="h4"
-          gutterBottom
-          align="center"
-          sx={{ fontWeight: 600, color: '#1976d2', mb: 3 }}
-        >
+        }}>
+
+        <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 600, color: '#1976d2', mb: 3 }}>
           {location.state ? 'Edit Job Posting' : 'Post a New Job'}
         </Typography>
 
         <Stack spacing={3}>
-          <TextField
-            label="Job Title"
-            name="title"
-            variant="outlined"
-            value={job.title}
-            onChange={inputHandler}
-            fullWidth
-            required
-          />
-          <TextField
-            label="Company"
-            name="company"
-            variant="outlined"
-            value={job.company}
-            onChange={inputHandler}
-            fullWidth
-            required
-          />
-          <TextField
-            label="Location"
-            name="location"
-            variant="outlined"
-            value={job.location}
-            onChange={inputHandler}
-            fullWidth
-            required
-          />
-          <TextField
-            label="Role"
-            name="role"
-            variant="outlined"
-            value={job.role}
-            onChange={inputHandler}
-            fullWidth
-            required
-          />
+          <TextField label="Job Title" name="title" variant="outlined" value={job.title} onChange={inputHandler} fullWidth required/>
+          <TextField label="Company" name="company" variant="outlined" value={job.company} onChange={inputHandler} fullWidth required/>
+          <TextField label="Location" name="location" variant="outlined" value={job.location} onChange={inputHandler} fullWidth required/>
+          <TextField label="Role" name="role" variant="outlined" value={job.role} onChange={inputHandler} fullWidth required/>
 
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              onClick={addHandler}
-              sx={{ borderRadius: 2 }}
-            >
+            <Button type="submit" variant="contained" color="primary" onClick={addHandler} sx={{ borderRadius: 2 }}>
               {location.state ? 'Update Job' : 'Post Job'}
             </Button>
 
-            <Button
-              variant="outlined"
-              color="error"
-              onClick={deleteHandler}
-              sx={{ borderRadius: 2 }}
-              disabled={!location.state}
-            >
+            <Button variant="outlined" color="error" onClick={deleteHandler} sx={{ borderRadius: 2 }} disabled={!location.state}>
               Delete Job
             </Button>
           </Box>
+          
         </Stack>
       </Paper>
     </Box>
