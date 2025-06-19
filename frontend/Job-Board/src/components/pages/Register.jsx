@@ -31,12 +31,12 @@ const Register = () => {
   
   return (
     <div>
-          <br/><br/> 
-                <Box component="form" sx={{ p: 6,m:3,display: 'flex',justifyContent: 'center', alignItems: 'center' }}>  
+
+     <Box component="form" sx={{ p: 6,m:3,display: 'flex',justifyContent: 'center', alignItems: 'center',backgroundColor: '#f1f4f8' }}>  
 
       <Paper elevation={8} sx={{borderRadius: 5,width: '50%',}}>   
-      
-      <Typography variant="h5" gutterBottom>New Registration</Typography>
+      <br/>
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: '#1976d2', mb: 3 }}>New Registration</Typography>
       <TextField label="Name" name="Name" variant="outlined" required  onChange={inputHandler}/><br/><br/>
       <TextField label="Age" name="Age" variant="outlined" onChange={inputHandler} /><br/><br/>
       <TextField label="Place" name="Place" variant="outlined" onChange={inputHandler} /><br/><br/>
