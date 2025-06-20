@@ -16,10 +16,14 @@ const NavBar = () => {
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Link to="/h" style={{ textDecoration: 'none' }}>
               <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
+                Job Lists
+              </Button>
+            </Link>
+            <Link to="/ho" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
                 Home
               </Button>
             </Link>
-            
             <Link to="/l" style={{ textDecoration: 'none' }}>
               <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#1976d2', '&:hover': { backgroundColor: '#e3f2fd' } }}>
                 Login
