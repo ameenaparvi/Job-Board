@@ -6,7 +6,7 @@ import { AdminPage } from './components/pages/AdminPage'
 import NavBar from './components/pages/NavBar'
 import { Route, Routes } from 'react-router-dom'
 import { HomePage } from './components/pages/HomePage'
-
+import Home from './components/pages/Home'
 import Register from './components/pages/Register'
 import Login from './components/pages/Login'
 import Welcome from './components/Welcome'
@@ -25,6 +25,7 @@ function App() {
                  <Route path="/a" element={<AdminPage/>}/>
                  <Route path="/h" element={<HomePage/>}/>
                  <Route path="/r" element={<Register/>}/>
+                 <Route path='ho' element={<Home/>}/>
           </Routes>
     </>
   )
