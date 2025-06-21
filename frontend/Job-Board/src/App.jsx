@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { AdminPage } from './components/pages/AdminPage'
 import NavBar from './components/pages/NavBar'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { HomePage } from './components/pages/HomePage'
 import Home from './components/pages/Home'
 import Register from './components/pages/Register'
@@ -15,15 +15,16 @@ import Welcome from './components/Welcome'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isAuthenticated,setIsAuthenticated]=useState(false);
 
   return (
     <>
           <NavBar/>
           <Routes>
                  <Route path="/" element={<Welcome/>}/>
-                 <Route path="/l" element={<Login/>}/>
+                 <Route path="/l" element={<Login setIsAuthenticated={setIsAuthenticated}/>}/>
                  <Route path="/a" element={<AdminPage/>}/>
-                 <Route path="/h" element={<HomePage/>}/>
+                 <Route path="/h" element={isAuthenticated?<HomePage/> : <Navigate to="/" replace/>}/>
                  <Route path="/r" element={<Register/>}/>
                  <Route path='ho' element={<Home/>}/>
           </Routes>
