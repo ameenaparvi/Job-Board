@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField, Button, Paper, Typography, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setIsAuthenticated}) => {
+
+  const[username,setUserName]=useState('');
+  const[password,setPassword]=useState('');
+  const navigate=useNavigate();
+
+  const handleLogin=()=>{
+    if(username==='user' && password==='pass'){/*need to change by setting real authentication logic later*/
+      setIsAuthenticated(true)
+      navigate('/h')
+    }
+    else{
+      alert('Invalid credentials')
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -19,9 +35,9 @@ const Login = () => {
         <Typography variant="h4" align="center" gutterBottom>
           Login
         </Typography>
-        <TextField label="Username" variant="outlined" fullWidth margin="normal" />
-        <TextField label="Password" type="password" variant="outlined" fullWidth margin="normal" />
-        <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 2 }}>
+        <TextField label="Username" variant="outlined" fullWidth margin="normal" value={username} onChange={(e)=>setUserName(e.target.value)}/>
+        <TextField label="Password" type="password" variant="outlined" fullWidth margin="normal" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+        <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 2 }} onClick={handleLogin}>
           Login
         </Button>
       </Paper>
