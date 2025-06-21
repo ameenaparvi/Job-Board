@@ -1,17 +1,11 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Chip,
-  Grid,
-  Typography
-} from '@mui/material';
+import { Autocomplete, Box,Button,Card,CardActions,CardContent,Chip,Grid,TextField,Typography} from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
 export const HomePage = () => {
+
   const [jobs, setJob] = useState([]);
+  const[searchTerm,setSearchTerm]=useState('');
+
 
   useEffect(() => {
     setJob([
@@ -32,7 +26,19 @@ export const HomePage = () => {
     ]);
   }, []);
 
+  const filteredJobs=jobs.filter((job)=>
+    job.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   return (
+<div>
+      
+      <Box sx={{ margin: 2 }}>
+        <Autocomplete freeSolo options={jobs.map((job)=>job.title)} 
+               onInputChange={(event,value)=>setSearchTerm(value)} renderInput={(params)=>(
+              <TextField {...params} label="Search by Job Title" variant="outlined" fullWidth />)}/>
+      </Box>
+
     <Box sx={{ padding: 4, backgroundColor: '#f7f9fc', minHeight: '100vh' }}>
       <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold', mb: 4 }}>
         🚀 Available Job Listings
@@ -84,5 +90,6 @@ export const HomePage = () => {
         ))}
       </Grid>
     </Box>
+    </div>
   );
 };
