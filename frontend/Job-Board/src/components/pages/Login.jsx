@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { TextField, Button, Paper, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = ({setIsAuthenticated}) => {
 
-  const[username,setUserName]=useState('');
+  const[Name,setName]=useState('');
   const[password,setPassword]=useState('');
   const navigate=useNavigate();
 
-  const handleLogin=()=>{
-    if(username==='user' && password==='pass'){/*need to change by setting real authentication logic later*/
-      setIsAuthenticated(true)
-      navigate('/h')
+  const handleLogin=async ()=>{
+       const res = await axios.post("http://localhost:3004/login", {
+      Name,
+      password
+    });
+   if (res.data.message === "Login successful") {
+      setIsAuthenticated(true);
+      navigate("/h");
     }
     else{
       alert('Invalid credentials')
@@ -35,7 +40,7 @@ const Login = ({setIsAuthenticated}) => {
         <Typography variant="h4" align="center" gutterBottom>
           Login
         </Typography>
-        <TextField label="Username" variant="outlined" fullWidth margin="normal" value={username} onChange={(e)=>setUserName(e.target.value)}/>
+        <TextField label="Username" variant="outlined" fullWidth margin="normal" value={Name} onChange={(e)=>setName(e.target.value)}/>
         <TextField label="Password" type="password" variant="outlined" fullWidth margin="normal" value={password} onChange={(e)=>setPassword(e.target.value)}/>
         <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 2 }} onClick={handleLogin}>
           Login
