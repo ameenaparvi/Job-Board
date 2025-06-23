@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Alert, Button, Paper, TextField, Typography } from '@mui/material'
 import Box from '@mui/material/Box';
 import { useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 const Register = () => {
   var[emp,setemp]=useState({Name:"",Age:"",Place:"",Qualification:"",email:"",password:""})
   var location=useLocation()
@@ -15,7 +16,7 @@ const Register = () => {
       alert("please fill out the required field")
       return
     }
-    axios.put("http://localhost:3000/add", {
+    axios.post("http://localhost:3004/register", {
       Name:emp.Name,
       Age:emp.Age,
       Place:emp.Place,

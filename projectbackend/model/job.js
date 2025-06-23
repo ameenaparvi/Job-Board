@@ -1,13 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-//scheme
-var schema=mongoose.Schema({
-    title:String,
-    company:String,
-    location:String,
-    role:String,
-})
 
-//model craetion
-var JobModel=mongoose.model("job",schema)
-module.exports=JobModel
+// Job schema
+const jobSchema = new mongoose.Schema({
+  title: String,
+  company: String,
+  location: String,
+  role: String
+});
+
+// Models
+
+const JobModel = mongoose.model("Job", jobSchema);
+
+module.exports =  JobModel;
+
