@@ -1,36 +1,40 @@
 import React from 'react';
-import { Paper, Typography, Box } from '@mui/material';
+import { Paper, Typography, Box, Button } from '@mui/material';
 
 const Welcome = () => {
   return (
     <Box
       sx={{
         minHeight: '100vh',
-        backgroundImage: `url('https://img.freepik.com/free-vector/man-search-hiring-job-online-from-laptop_1150-52728.jpg?ga=GA1.1.1674172579.1750179706&semt=ais_hybrid&w=740')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/Images/bg.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        px: 2,
       }}
     >
       <Paper
-        elevation={4}
+        elevation={6}
         sx={{
-          padding: 4,
-          width: 400,
+          px: 5,
+          py: 6,
+          width: { xs: '100%', sm: 450 },
           textAlign: 'center',
-          backgroundColor: 'rgba(255, 255, 255, 0.85)',
-          backdropFilter: 'blur(4px)',
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          borderRadius: 4,
+          boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
         }}
       >
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h3" gutterBottom fontWeight="bold" color="primary">
           Welcome to Job Portal
         </Typography>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" color="textSecondary" sx={{ mb: 3 }}>
           Find your dream job or the perfect candidate with ease.
         </Typography>
+     
       </Paper>
     </Box>
   );

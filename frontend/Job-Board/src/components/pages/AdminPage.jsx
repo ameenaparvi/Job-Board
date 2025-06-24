@@ -62,7 +62,7 @@ export const AdminPage = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        backgroundColor: '#f1f4f8',
+        backgroundImage: `url('/Images/bg.png')`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
