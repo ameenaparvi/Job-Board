@@ -79,7 +79,7 @@ const About = () => {
           </Grid>
         </Box>
 
-        {/* Meet Our Team Section in Box */}
+        {/* Meet Our Team Section */}
         <Box sx={{ mt: 8 }}>
           <Paper
             elevation={3}
@@ -101,7 +101,7 @@ const About = () => {
                   role: 'Frontend',
                 },
                 {
-                  name: 'Maria Joby',
+                  name: 'Mariya Joby',
                   role: 'Frontend',
                 },
                 {
@@ -135,6 +135,29 @@ const About = () => {
               ))}
             </Grid>
           </Paper>
+        </Box>
+
+        {/* Contact Us Section */}
+        <Box sx={{ mt: 8 }}>
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} md={4}>
+              <Paper
+                elevation={3}
+                sx={{
+                  padding: 3,
+                  borderRadius: 4,
+                  backgroundColor: 'rgba(30, 30, 30, 0.75)',
+                  color: 'white',
+                }}
+              >
+                <Typography variant="h6" fontWeight="bold" gutterBottom>
+                  Contact Us
+                </Typography>
+                <Typography variant="body1">Email: support@jobportal.com</Typography>
+                <Typography variant="body1">Phone: +91 9876543210</Typography>
+              </Paper>
+            </Grid>
+          </Grid>
         </Box>
       </Container>
     </Box>
