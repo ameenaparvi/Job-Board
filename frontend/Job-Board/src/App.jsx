@@ -18,10 +18,12 @@ function App() {
   const [count, setCount] = useState(0)
   const [isAuthenticated,setIsAuthenticated]=useState(false);
   const [userName, setUserName] = useState('');
+  
+  console.log("Authenticated:", isAuthenticated);
 
   return (
     <>
-          <NavBar userName={userName}/>
+          <NavBar userName={userName} setIsAuthenticated={setIsAuthenticated} setUserName={setUserName}/>
           <Routes>
                  <Route path="/about" element={<About/>} />
                  <Route path="/" element={<Welcome/>}/>

@@ -6,10 +6,7 @@ const Welcome = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/Images/bg.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#f5f7fa',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -28,7 +25,7 @@ const Welcome = () => {
           boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
         }}
       >
-        <Typography variant="h3" gutterBottom fontWeight="bold" color="primary">
+        <Typography variant="h3" gutterBottom fontWeight="bold" sx={{ color: '#3f51b5' }}>
           Welcome to Job Portal
         </Typography>
         <Typography variant="subtitle1" color="textSecondary" sx={{ mb: 3 }}>

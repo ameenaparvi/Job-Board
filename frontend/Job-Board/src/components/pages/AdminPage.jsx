@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 export const AdminPage = () => {
   const [job, setJob] = useState({ title: "", company: "", location: "", role: "" });
+  const [loading, setLoading] = useState(false);//for loading visuals
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -12,20 +13,30 @@ export const AdminPage = () => {
     setJob({ ...job, [e.target.name]: e.target.value });
   };
 
-  const addHandler = () => {
-    if (location.state !== null) {
-      axios.put(`http://localhost:3004/update/${location.state.job._id}`, job)
-        .then((res) => {
-          alert(res.data.message);
-          navigate("/h");
-        });
+  const addHandler = async() => {
+    const { title, company, location: jobLocation, role } = job;
+  if (!title || !company || !jobLocation || !role) {
+    alert("Please fill in all fields before submitting.");
+    return;
+  }
+  setLoading(true);
+  try {
+    if (location.state && location.state.job) {
+      const res = await axios.put(`http://localhost:3004/update/${location.state.job._id}`, job);
+      alert(res.data.message);
     } else {
-      axios.post("http://localhost:3004/add", job)
-        .then((res) => {
-          alert(res.data.message);
-          navigate("/h");
-        });
+      const res = await axios.post("http://localhost:3004/add", job);
+      alert(res.data.message);
     }
+    navigate("/h");
+  }
+    catch (err) {
+      console.error("Error:", err);
+      alert("Failed to submit the job.");
+    } finally {
+      setLoading(false);
+    }
+    
   };
 
   const deleteHandler = () => {
@@ -62,7 +73,7 @@ export const AdminPage = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        backgroundImage: `url('/Images/bg.png')`,
+        backgroundColor: '#f5f7fa',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -73,10 +84,11 @@ export const AdminPage = () => {
           borderRadius: 4,
           p: 5,
           width: { xs: '100%', sm: '80%', md: '50%' },
-          backgroundColor: '#fff',
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
         }}>
 
-        <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 600, color: '#1976d2', mb: 3 }}>
+        <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 600, color: '#3f51b5', mb: 3 }}>
           {location.state ? 'Edit Job Posting' : 'Post a New Job'}
         </Typography>
 
@@ -87,11 +99,11 @@ export const AdminPage = () => {
           <TextField label="Role" name="role" variant="outlined" value={job.role} onChange={inputHandler} fullWidth required/>
 
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-            <Button type="submit" variant="contained" color="primary" onClick={addHandler} sx={{ borderRadius: 2 }}>
-              {location.state ? 'Update Job' : 'Post Job'}
-            </Button>
+          <Button type="submit" variant="contained" color="primary" onClick={addHandler} sx={{ borderRadius: 2, backgroundColor: '#3f51b5', '&:hover': { backgroundColor: '#303f9f' }, }} disabled={loading}>
+               {loading ? 'Submitting...' : location.state ? 'Update Job' : 'Post Job'}
+          </Button>
 
-            <Button variant="outlined" color="error" onClick={deleteHandler} sx={{ borderRadius: 2 }} disabled={!location.state}>
+          <Button variant="outlined" color="error" onClick={deleteHandler} sx={{ borderRadius: 2 }} disabled={!location.state}>
               Delete Job
             </Button>
           </Box>

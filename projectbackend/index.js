@@ -20,10 +20,12 @@ app.get('/trail', (req, res) => {
 // Register user
 app.post("/register", async (req, res) => {
   try {
+    console.log("Received:", req.body);
     const user = new UserModel(req.body);
     await user.save();
     res.json({ message: "User registered successfully" });
   } catch (err) {
+    console.error("Save failed:", err);
     res.status(400).json({ message: "Registration failed", error: err.message });
   }
 });
