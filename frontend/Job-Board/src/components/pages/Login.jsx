@@ -8,11 +8,16 @@ const Login = ({setIsAuthenticated}) => {
   const[password,setPassword]=useState('');
   const navigate=useNavigate();
 
-  const handleLogin=()=>{
-    if(username==='user' && password==='pass'){/*need to change by setting real authentication logic later*/
-      setIsAuthenticated(true)
-      navigate('/h')
-    }
+  
+  const handleLogin=async ()=>{
+       const res = await axios.post("http://localhost:3004/login", {
+      Name,
+      password
+    });
+   if (res.data.message === "Login successful") {
+      setIsAuthenticated(true);
+      setUserName(Name);
+      navigate("/h");
     else{
       alert('Invalid credentials')
     }
