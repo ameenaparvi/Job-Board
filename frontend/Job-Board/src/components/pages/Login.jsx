@@ -3,7 +3,7 @@ import { TextField, Button, Paper, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = ({setIsAuthenticated}) => {
+const Login = ({setIsAuthenticated, setUserName}) => {
 
   const[Name,setName]=useState('');
   const[password,setPassword]=useState('');
@@ -16,6 +16,7 @@ const Login = ({setIsAuthenticated}) => {
     });
    if (res.data.message === "Login successful") {
       setIsAuthenticated(true);
+      setUserName(Name);
       navigate("/h");
     }
     else{
