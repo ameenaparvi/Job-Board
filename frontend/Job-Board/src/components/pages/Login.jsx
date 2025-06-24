@@ -8,12 +8,20 @@ const Login = ({setIsAuthenticated, setUserName}) => {
   const[password,setPassword]=useState('');
   const navigate=useNavigate();
 
-    }
+  const handleLogin=async ()=>{
+       const res = await axios.post("http://localhost:3004/login", {
+      Name,
+      password
+    });
+    if(res.data.message === "Login successful") {
+      setIsAuthenticated(true);
+      setUserName(Name);
+      navigate("/h");}
     else{
       alert('Invalid credentials')
     }
   };
-
+ 
   return (
     <Box
      sx={{
@@ -39,6 +47,6 @@ const Login = ({setIsAuthenticated, setUserName}) => {
       </Paper>
     </Box>
   );
-};
+}
 
 export default Login;
