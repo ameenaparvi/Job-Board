@@ -32,7 +32,7 @@ const Register = () => {
       .then((res) => {
         setSuccessMsg(res.data.message || "Registration successful!");
         // optionally redirect:
-        // navigate('/login')
+        navigate('/l')
       })
       .catch((err) => {
         alert("Registration failed");
@@ -46,10 +46,15 @@ const Register = () => {
     <div>
       <Box
         component="form"
-        sx={{ p: 6, m: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundImage: `url('/Images/bg.png')`, }}
+        sx={{ minHeight: '100vh',
+          backgroundColor: '#f5f7fa',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          px: 2, }}
       >
-        <Paper elevation={8} sx={{ borderRadius: 5, width: '50%', p: 4 }}>
-          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: '#1976d2', mb: 3 }}>
+        <Paper elevation={4} sx={{ borderRadius: 4, width: { xs: '100%', sm: '80%', md: '50%' }, p: 4 ,backgroundColor: 'rgba(255,255,255,0.9)',backdropFilter: 'blur(4px)',}}>
+          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: '#3f51b5'  }}>
             New Registration
           </Typography>
 
@@ -75,7 +80,14 @@ const Register = () => {
           <TextField fullWidth label="Email" name="email" variant="outlined" required onChange={inputHandler} /><br /><br />
           <TextField fullWidth label="Password" name="password" type="password" variant="outlined" required onChange={inputHandler} /><br /><br />
 
-          <Button type="button" variant="contained" fullWidth onClick={addHandler}>Submit</Button><br /><br />
+          <Button type="button" variant="contained" fullWidth onClick={addHandler} sx={{
+            mt: 3,
+            backgroundColor: '#3f51b5',
+            fontWeight: 600,
+            '&:hover': {
+              backgroundColor: '#303f9f'
+            }
+          }}>Submit</Button><br /><br />
 
           {successMsg && (
             <Alert severity="success">{successMsg}</Alert>

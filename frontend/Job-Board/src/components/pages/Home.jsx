@@ -5,10 +5,7 @@ const Home = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url('/Images/bg2.png')`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
+        backgroundColor: '#f5f7fa',
         py: 6,
         minHeight: '100vh',
       }}
@@ -19,8 +16,9 @@ const Home = () => {
           elevation={3}
           sx={{
             p: { xs: 3, sm: 5 },
-            borderRadius: '16px',
-            backgroundColor: '#e3f2fd',
+            borderRadius: 4,
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(4px)',
             textAlign: 'center',
           }}
         >
@@ -33,17 +31,31 @@ const Home = () => {
           <Box sx={{ mt: 3 }}>
             <Button
               variant="contained"
-              color="primary"
               size="large"
-              sx={{ mr: 2 }}
+              sx={{
+                backgroundColor: '#3f51b5',
+                color: '#fff',
+                mr: 2,
+                '&:hover': {
+                  backgroundColor: '#303f9f',
+                },
+              }}
               href="/l"
             >
               Login to Get Started
             </Button>
             <Button
               variant="outlined"
-              color="primary"
               size="large"
+              sx={{
+                borderColor: '#3f51b5',
+                color: '#3f51b5',
+                '&:hover': {
+                  backgroundColor: '#e8eaf6',
+                  borderColor: '#303f9f',
+                  color: '#303f9f',
+                },
+              }}
               href="/r"
             >
               Register Now
@@ -54,13 +66,14 @@ const Home = () => {
         {/* Why Choose JobConnect */}
         <Paper
           elevation={2}
-          sx={{ mt: 10, p: 4, borderRadius: 4, backgroundColor: '#ffffffcc' }}
+          sx={{ mt: 10, p: 4, borderRadius: 4, backgroundColor: 'rgba(255, 255, 255, 0.85)',backdropFilter: 'blur(4px)' }}
         >
           <Typography
             variant="h4"
             fontWeight="bold"
             textAlign="center"
             gutterBottom
+            sx={{ color: '#3f51b5' }}
           >
             Why Choose JobConnect?
           </Typography>
@@ -75,12 +88,12 @@ const Home = () => {
                   elevation={2}
                   sx={{
                     p: 3,
-                    borderRadius: 4,
+                    borderRadius: 3,
                     textAlign: 'center',
-                    height: '100%',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   }}
                 >
-                  <Typography variant="h6" fontWeight="bold" gutterBottom>
+                  <Typography variant="h6" fontWeight="bold" gutterBottom sx={{ color: '#3f51b5' }}>
                     {feature.title}
                   </Typography>
                   <Typography variant="body1">{feature.desc}</Typography>
@@ -93,13 +106,14 @@ const Home = () => {
         {/* How It Works */}
         <Paper
           elevation={2}
-          sx={{ mt: 10, p: 4, borderRadius: 4, backgroundColor: '#ffffffcc' }}
+          sx={{ mt: 10, p: 4, borderRadius: 4, backgroundColor: 'rgba(255, 255, 255, 0.85)',backdropFilter: 'blur(4px)' }}
         >
           <Typography
             variant="h4"
             fontWeight="bold"
             textAlign="center"
             gutterBottom
+            sx={{ color: '#3f51b5' }}
           >
             How It Works
           </Typography>
@@ -114,12 +128,12 @@ const Home = () => {
                   elevation={2}
                   sx={{
                     p: 3,
-                    borderRadius: 4,
+                    borderRadius: 3,
                     textAlign: 'center',
-                    height: '100%',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   }}
                 >
-                  <Typography variant="h6" fontWeight="bold" gutterBottom>
+                  <Typography variant="h6" fontWeight="bold" gutterBottom sx={{ color: '#3f51b5' }}>
                     {item.step}
                   </Typography>
                   <Typography variant="body1">{item.desc}</Typography>

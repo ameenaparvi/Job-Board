@@ -5,8 +5,8 @@ const About = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'transparent',
-        color: 'white',
+        backgroundColor: '#f5f7fa',
+        color: '#333',
         py: 6,
         minHeight: '100vh',
       }}
@@ -21,14 +21,13 @@ const About = () => {
                 padding: 4,
                 borderRadius: 4,
                 textAlign: 'center',
-                backgroundColor: 'rgba(30, 30, 30, 0.75)',
-                color: 'white',
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
               }}
             >
-              <Typography variant="h3" fontWeight="bold" gutterBottom>
+              <Typography variant="h3" fontWeight="bold" gutterBottom sx={{ color: '#3f51b5' }}>
                 About JobConnect
               </Typography>
-              <Typography variant="h6" sx={{ color: 'gray' }} gutterBottom>
+              <Typography variant="h6" sx={{ color: '#555' }} gutterBottom>
                 Connecting talents with opportunities — smarter and faster.
               </Typography>
               <Typography variant="body1" fontSize="1.1rem" sx={{ mt: 2 }}>
@@ -65,11 +64,10 @@ const About = () => {
                     padding: 3,
                     borderRadius: 4,
                     textAlign: 'center',
-                    backgroundColor: 'rgba(30, 30, 30, 0.75)',
-                    color: 'white',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   }}
                 >
-                  <Typography variant="h6" fontWeight="bold" gutterBottom>
+                  <Typography variant="h6" fontWeight="bold" sx={{ color: '#3f51b5' }} gutterBottom>
                     {section.title}
                   </Typography>
                   <Typography variant="body1">{section.content}</Typography>
@@ -87,8 +85,7 @@ const About = () => {
               padding: 4,
               borderRadius: 4,
               textAlign: 'center',
-              backgroundColor: 'rgba(30, 30, 30, 0.75)',
-              color: 'white',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
             }}
           >
             <Typography variant="h4" fontWeight="bold" gutterBottom>
@@ -101,7 +98,7 @@ const About = () => {
                   role: 'Frontend',
                 },
                 {
-                  name: 'Mariya Joby',
+                  name: 'Maria Joby',
                   role: 'Frontend',
                 },
                 {
@@ -120,8 +117,7 @@ const About = () => {
                       padding: 3,
                       borderRadius: 4,
                       textAlign: 'center',
-                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                      color: '#000',
+                      backgroundColor: '#e3f2fd',
                     }}
                   >
                     <Typography variant="h6" fontWeight="bold">
@@ -146,15 +142,14 @@ const About = () => {
                 sx={{
                   padding: 3,
                   borderRadius: 4,
-                  backgroundColor: 'rgba(30, 30, 30, 0.75)',
-                  color: 'white',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
                 }}
               >
-                <Typography variant="h6" fontWeight="bold" gutterBottom>
+                <Typography variant="h6" fontWeight="bold" gutterBottom sx={{ color: '#3f51b5' }}>
                   Contact Us
                 </Typography>
-                <Typography variant="body1">Email: support@jobportal.com</Typography>
-                <Typography variant="body1">Phone: +91 9876543210</Typography>
+                <Typography variant="body1" sx={{ color: '#333' }}>Email: support@jobportal.com</Typography>
+                <Typography variant="body1" sx={{ color: '#333' }}>Phone: +91 9876543210</Typography>
               </Paper>
             </Grid>
           </Grid>
