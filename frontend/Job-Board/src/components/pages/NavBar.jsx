@@ -35,6 +35,11 @@ const NavBar = () => {
                 Admin Page
               </Button>
             </Link>
+            <Link to="/about" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" sx={{backgroundColor: '#ffffff',color: '#1976d2','&:hover': { backgroundColor: '#e3f2fd' },}}>
+                  About Us
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
