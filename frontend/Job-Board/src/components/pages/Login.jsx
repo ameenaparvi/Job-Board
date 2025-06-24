@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Paper, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({setIsAuthenticated, setUserName}) => {
+const Login = ({setIsAuthenticated}) => {
 
   const[username,setUserName]=useState('');
   const[password,setPassword]=useState('');
