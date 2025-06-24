@@ -14,15 +14,15 @@ const Login = ({setIsAuthenticated}) => {
       Name,
       password
     });
-   if (res.data.message === "Login successful") {
+    if(res.data.message === "Login successful") {
       setIsAuthenticated(true);
       setUserName(Name);
-      navigate("/h");
+      navigate("/h");}
     else{
       alert('Invalid credentials')
     }
   };
-
+ 
   return (
     <Box
      sx={{
@@ -48,6 +48,6 @@ const Login = ({setIsAuthenticated}) => {
       </Paper>
     </Box>
   );
-};
+}
 
 export default Login;
