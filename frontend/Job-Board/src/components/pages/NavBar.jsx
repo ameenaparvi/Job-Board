@@ -1,8 +1,8 @@
-import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, Button, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ userName }) => {
   return (
     <Box sx={{ margin: '1rem',borderRadius: '16px',overflow: 'hidden',  }}>
       <AppBar position="static" color="primary" sx={{ borderRadius: '16px' }}>
@@ -40,6 +40,14 @@ const NavBar = () => {
                   About Us
               </Button>
             </Link>
+
+            {userName && (
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, ml: 2 }}>
+                <Avatar>{userName.charAt(0).toUpperCase()}</Avatar>
+                <Typography sx={{ color: '#fff' }}>{userName}</Typography>
+              </Box>
+            )}
+
           </Box>
         </Toolbar>
       </AppBar>

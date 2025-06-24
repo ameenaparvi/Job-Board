@@ -17,14 +17,15 @@ import About from './components/pages/About'
 function App() {
   const [count, setCount] = useState(0)
   const [isAuthenticated,setIsAuthenticated]=useState(false);
+  const [userName, setUserName] = useState('');
 
   return (
     <>
-          <NavBar/>
+          <NavBar userName={userName}/>
           <Routes>
                  <Route path="/about" element={<About/>} />
                  <Route path="/" element={<Welcome/>}/>
-                 <Route path="/l" element={<Login setIsAuthenticated={setIsAuthenticated}/>}/>
+                 <Route path="/l" element={<Login setIsAuthenticated={setIsAuthenticated} setUserName={setUserName}/>}/>
                  <Route path="/a" element={<AdminPage/>}/>
                  <Route path="/h" element={isAuthenticated?<HomePage/> : <Navigate to="/" replace/>}/>
                  <Route path="/r" element={<Register/>}/>

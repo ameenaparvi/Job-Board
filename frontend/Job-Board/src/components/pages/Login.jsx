@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { TextField, Button, Paper, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({setIsAuthenticated}) => {
+const Login = ({setIsAuthenticated, setUserName}) => {
 
   const[username,setUserName]=useState('');
   const[password,setPassword]=useState('');
   const navigate=useNavigate();
 
-  
   const handleLogin=async ()=>{
        const res = await axios.post("http://localhost:3004/login", {
       Name,
