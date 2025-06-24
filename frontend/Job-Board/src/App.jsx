@@ -10,6 +10,7 @@ import Home from './components/pages/Home'
 import Register from './components/pages/Register'
 import Login from './components/pages/Login'
 import Welcome from './components/Welcome'
+import About from './components/pages/About'
 
 
 
@@ -21,6 +22,7 @@ function App() {
     <>
           <NavBar/>
           <Routes>
+                 <Route path="/about" element={<About/>} />
                  <Route path="/" element={<Welcome/>}/>
                  <Route path="/l" element={<Login setIsAuthenticated={setIsAuthenticated}/>}/>
                  <Route path="/a" element={<AdminPage/>}/>
