@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export const AdminPage = () => {
-  const [job, setJob] = useState({ title: "", company: "", location: "", role: "" });
+  const [job, setJob] = useState({ title: "", company: "", location: "", role: "",description: "",companyEmail: "",postedDate: ""});
   const [loading, setLoading] = useState(false);//for loading visuals
   const navigate = useNavigate();
   const location = useLocation();
@@ -65,6 +65,9 @@ export const AdminPage = () => {
         company: location.state.job.company,
         location: location.state.job.location,
         role: location.state.job.role,
+        description: location.state.job.description || "",
+        companyEmail: location.state.job.companyEmail || "",
+        postedDate: location.state.job.postedDate?.split("T")[0] || "", // YYYY-MM-DD
       });
     }
   }, []);
@@ -97,13 +100,16 @@ export const AdminPage = () => {
           <TextField label="Company" name="company" variant="outlined" value={job.company} onChange={inputHandler} fullWidth required/>
           <TextField label="Location" name="location" variant="outlined" value={job.location} onChange={inputHandler} fullWidth required/>
           <TextField label="Role" name="role" variant="outlined" value={job.role} onChange={inputHandler} fullWidth required/>
+          <TextField label="Description" name="description" variant="outlined" value={job.description} onChange={inputHandler} fullWidth required/>
+          <TextField label="Posted Date" name="postedDate" variant="outlined" value={job.postedDate} onChange={inputHandler} fullWidth required/>
+          <TextField label="Company Email" name="companyEmail" variant="outlined" value={job.companyEmail} onChange={inputHandler} fullWidth required/>
 
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
           <Button type="submit" variant="contained" color="primary" onClick={addHandler} sx={{ borderRadius: 2, backgroundColor: '#3f51b5', '&:hover': { backgroundColor: '#303f9f' }, }} disabled={loading}>
                {loading ? 'Submitting...' : location.state ? 'Update Job' : 'Post Job'}
           </Button>
 
-          <Button variant="outlined" color="error" onClick={deleteHandler} sx={{ borderRadius: 2 }} disabled={!location.state}>
+          <Button variant="outlined" color="primary" onClick={deleteHandler} sx={{ borderRadius: 2 }} disabled={!location.state}>
               Delete Job
             </Button>
           </Box>

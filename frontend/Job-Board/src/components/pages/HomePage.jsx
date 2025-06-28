@@ -1,13 +1,15 @@
 import { Autocomplete, Box,Button,Card,CardActions,CardContent,Chip,Grid,TextField,Typography} from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export const HomePage = () => {
 
   const [jobs, setJob] = useState([]);
   const[searchTerm,setSearchTerm]=useState('');
-
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     axios.get('http://localhost:3004/jobs')
       .then((res) => {
@@ -22,6 +24,17 @@ export const HomePage = () => {
     job.title.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  const handleShare = (job) => {
+    const shareText = `Check out this job: ${job.title} at ${job.company}, ${job.location}`;
+    navigator.clipboard.writeText(shareText)
+      .then(() => {
+        alert("Job info copied to clipboard!");
+      })
+      .catch(() => {
+        alert("Failed to copy job info.");
+      });
+  };
+  
   return (
 <div>
 <Box sx={{ backgroundColor: '#f5f7fa', minHeight: '100vh', px: 2, py: 4 }}>
@@ -36,7 +49,7 @@ export const HomePage = () => {
         🚀 Available Job Listings
       </Typography>
 
-      <Grid container spacing={4}>
+      <Grid container spacing={6}>
         {filteredJobs.map((job) => (
           <Grid item xs={12} sm={6} md={4} key={job._id}>
             <Card
@@ -71,7 +84,7 @@ export const HomePage = () => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: 'space-between', px: 2 }}>
-                <Button variant="outlined" size="small" sx={{
+                <Button variant="outlined" size="small"onClick={() => handleShare(job)}  sx={{
                     color: '#3f51b5',
                     borderColor: '#3f51b5',
                     '&:hover': {
@@ -82,7 +95,7 @@ export const HomePage = () => {
                   }}>
                   Share
                 </Button>
-                <Button variant="contained" size="small" sx={{
+                <Button variant="contained" size="small" onClick={() => navigate("/job-details", { state: { job } })} sx={{
                     backgroundColor: '#3f51b5',
                     '&:hover': {
                       backgroundColor: '#303f9f',
@@ -90,6 +103,13 @@ export const HomePage = () => {
                   }}>
                   Learn More
                 </Button>
+                <Button variant="contained" size="small" onClick={() => navigate("/a", { state: { job } })} sx={{ 
+                  backgroundColor: '#3f51b5', 
+                  '&:hover': { 
+                    backgroundColor: '#303f9f', }, }}>
+                 Edit Job
+                </Button>
+
               </CardActions>
             </Card>
           </Grid>

@@ -76,6 +76,17 @@ app.delete("/delete/:id", async (req, res) => {
   }
 });
 
+//Update job by ID
+app.put("/update/:id", async (req, res) => {
+  try {
+    const updatedJob = await JobModel.findByIdAndUpdate(req.params.id,req.body,{ new: true });
+    res.json({ message: "Job updated successfully", updatedJob });
+  } catch (err) {
+    res.status(400).json({ message: "Error updating job", error: err.message });
+  }
+});
+
+
 // Start server
 app.listen(3004, () => {
   console.log("Server is running on port 3004");

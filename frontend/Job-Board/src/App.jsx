@@ -11,6 +11,7 @@ import Register from './components/pages/Register'
 import Login from './components/pages/Login'
 import Welcome from './components/Welcome'
 import About from './components/pages/About'
+import JobDetailPage from './components/pages/JobDetailPage';
 
 
 
@@ -32,6 +33,7 @@ function App() {
                  <Route path="/h" element={isAuthenticated?<HomePage/> : <Navigate to="/" replace/>}/>
                  <Route path="/r" element={<Register/>}/>
                  <Route path='ho' element={<Home/>}/>
+                 <Route path="/job-details" element={<JobDetailPage />} />
           </Routes>
     </>
   )
