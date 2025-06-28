@@ -6,7 +6,10 @@ const jobSchema = new mongoose.Schema({
   title: String,
   company: String,
   location: String,
-  role: String
+  role: String,
+  description: String,
+  postedDate: { type: Date, default: Date.now },
+  companyEmail: String,
 });
 
 // Models

@@ -31,6 +31,7 @@ const Register = () => {
     axios.post("http://localhost:3004/register", emp)
       .then((res) => {
         setSuccessMsg(res.data.message || "Registration successful!");
+        alert("Registration successfull")
         // optionally redirect:
         navigate('/l')
       })
@@ -39,6 +40,7 @@ const Register = () => {
         console.error(err);
       });
   };
+  
 
   const qualifications = ["SSLC", "Plus Two", "Diploma", "Degree", "PG", "Other"];
 
