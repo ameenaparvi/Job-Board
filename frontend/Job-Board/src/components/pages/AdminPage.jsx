@@ -28,7 +28,7 @@ export const AdminPage = () => {
       const res = await axios.post("http://localhost:3004/add", job);
       alert(res.data.message);
     }
-    navigate("/h");
+    navigate("/aj");
   }
     catch (err) {
       console.error("Error:", err);
@@ -39,24 +39,7 @@ export const AdminPage = () => {
     
   };
 
-  const deleteHandler = () => {
-    if (location.state !== null) {
-      const confirmDelete = window.confirm("Are you sure you want to delete this job?");
-      if (confirmDelete) {
-        axios.delete(`http://localhost:3004/delete/${location.state.job._id}`)
-          .then((res) => {
-            alert(res.data.message);
-            navigate("/h");
-          })
-          .catch((err) => {
-            console.error(err);
-            alert("Failed to delete the job");
-          });
-      }
-    } else {
-      alert("No job selected to delete.");
-    }
-  };
+  
 
   useEffect(() => {
     if (location.state !== null) {
@@ -104,14 +87,10 @@ export const AdminPage = () => {
           <TextField label="Posted Date" name="postedDate" variant="outlined" value={job.postedDate} onChange={inputHandler} fullWidth required/>
           <TextField label="Company Email" name="companyEmail" variant="outlined" value={job.companyEmail} onChange={inputHandler} fullWidth required/>
 
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent:'center', mt: 2 }}>
           <Button type="submit" variant="contained" color="primary" onClick={addHandler} sx={{ borderRadius: 2, backgroundColor: '#3f51b5', '&:hover': { backgroundColor: '#303f9f' }, }} disabled={loading}>
                {loading ? 'Submitting...' : location.state ? 'Update Job' : 'Post Job'}
           </Button>
-
-          <Button variant="outlined" color="primary" onClick={deleteHandler} sx={{ borderRadius: 2 }} disabled={!location.state}>
-              Delete Job
-            </Button>
           </Box>
           
         </Stack>

@@ -2,9 +2,11 @@ import { Autocomplete, Box,Button,Card,CardActions,CardContent,Chip,Grid,TextFie
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Fab } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 
-export const HomePage = () => {
+export const AdminJob = () => {
 
   const [jobs, setJob] = useState([]);
   const[searchTerm,setSearchTerm]=useState('');
@@ -23,17 +25,26 @@ export const HomePage = () => {
   const filteredJobs=jobs.filter((job)=>
     job.title.toLowerCase().includes(searchTerm.toLowerCase())
   )
+const deleteHandler = async (id) => {
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete this job?'
+    );
+    if (!confirmDelete) return;
 
-  const handleShare = (job) => {
-    const shareText = `Check out this job: ${job.title} at ${job.company}, ${job.location}`;
-    navigator.clipboard.writeText(shareText)
-      .then(() => {
-        alert("Job info copied to clipboard!");
-      })
-      .catch(() => {
-        alert("Failed to copy job info.");
-      });
+    try {
+      const { data } = await axios.delete(
+        `http://localhost:3004/delete/${id}`
+      );
+      alert(data.message); // e.g. "Job deleted successfully"
+
+      // Remove the job from UI
+      setJob((prev) => prev.filter((job) => job._id !== id));
+    } catch (err) {
+      console.error('❌ Delete failed:', err);
+      alert('Failed to delete the job');
+    }
   };
+ 
   
   return (
 <div>
@@ -46,7 +57,7 @@ export const HomePage = () => {
 
     
       <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold', mb: 4, color: '#3f51b5'  }}>
-        🚀 Available Job Listings
+        🚀 Added Job Listings
       </Typography>
 
       <Grid container spacing={6}>
@@ -84,32 +95,49 @@ export const HomePage = () => {
                 </Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: 'space-between', px: 2 }}>
-                <Button variant="outlined" size="small"onClick={() => handleShare(job)}  sx={{
-                    color: '#3f51b5',
-                    borderColor: '#3f51b5',
-                    '&:hover': {
-                      backgroundColor: '#e8eaf6',
-                      borderColor: '#303f9f',
-                      color: '#303f9f',
-                    },
-                  }}>
-                  Share
-                </Button>
-                <Button variant="contained" size="small" onClick={() => navigate("/job-details", { state: { job } })} sx={{
+               <Button
+                  variant="contained"
+                  size="small"
+                  onClick={() => deleteHandler(job._id)}
+                  sx={{
                     backgroundColor: '#3f51b5',
-                    '&:hover': {
-                      backgroundColor: '#303f9f',
-                    },
-                  }}>
-                  Learn More
+                    '&:hover': { backgroundColor: '#303f9f' },
+                  }}
+                >
+                  DELETE
                 </Button>
-               
+
+                <Button variant="contained" size="small" onClick={() => navigate("/a", { state: { job } })} sx={{ 
+                  backgroundColor: '#3f51b5', 
+                  '&:hover': { 
+                    backgroundColor: '#303f9f', }, }}>
+                 Edit Job
+                </Button>
 
               </CardActions>
             </Card>
           </Grid>
         ))}
       </Grid>
+      <Fab
+  variant="extended"
+  color="primary"
+  onClick={() => navigate('/a')} // change path to your add job route
+  sx={{
+    position: 'fixed',
+    bottom: 40,
+    right: 40,
+    backgroundColor: '#3f51b5',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#303f9f',
+    },
+    boxShadow: 4,
+  }}
+>
+  <AddIcon sx={{ mr: 1 }} />
+  Add Job
+</Fab>
     </Box>
     </div>
   );
