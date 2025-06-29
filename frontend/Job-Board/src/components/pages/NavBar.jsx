@@ -38,7 +38,7 @@ const NavBar = ({ userName, setIsAuthenticated, setUserName }) => {
                 Register
               </Button>
             </Link>
-            <Link to="/a" style={{ textDecoration: 'none' }}>
+            <Link to="/lo" style={{ textDecoration: 'none' }}>
               <Button variant="contained" sx={{ backgroundColor: '#ffffff', color: '#3f51b5', '&:hover': { backgroundColor: '#e8eaf6' } }}>
                 Admin
               </Button>
