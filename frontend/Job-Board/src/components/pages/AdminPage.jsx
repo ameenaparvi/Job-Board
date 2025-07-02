@@ -57,21 +57,40 @@ export const AdminPage = () => {
 
   return (
     <Box
-      sx={{
+     sx={{
         minHeight: '100vh',
-        backgroundColor: '#f5f7fa',
+        width: '100vw',
+        m: 0,
+        p: 0,
+        position: 'relative',
+        backgroundImage: `url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        px: 2
-      }}>
+      }}
+    >
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(255,255,255,0.2)',
+          zIndex: 0,
+        }}
+      />
       <Paper elevation={8}
         sx={{
+          position: 'relative',
+          zIndex: 1,
           borderRadius: 4,
           p: 5,
           width: { xs: '100%', sm: '80%', md: '50%' },
           backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
         }}>
 
         <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 600, color: '#3f51b5', mb: 3 }}>

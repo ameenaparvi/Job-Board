@@ -6,16 +6,35 @@ const Welcome = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        backgroundColor: '#f5f7fa',
+        width: '100vw',        
+        padding: 0,             
+        margin: 0,
+        position: 'relative',
+        backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        //backgroundColor: '#f5f7fa',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        px: 2,
       }}
     >
+      <Box
+        sx={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          top: 0,
+          left: 0,
+          zIndex: 0,
+        }}
+      />
       <Paper
         elevation={6}
         sx={{
+          position: 'relative',
+          zIndex: 1,
           px: 5,
           py: 6,
           width: { xs: '100%', sm: 450 },

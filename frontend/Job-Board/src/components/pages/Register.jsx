@@ -48,16 +48,23 @@ const Register = () => {
     <div>
       <Box
         component="form"
-        sx={{ minHeight: '100vh',
+        sx={{ minHeight: 'vh',
+          width: '100vw',
+          backgroundImage: `url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1470&q=80')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           backgroundColor: '#f5f7fa',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          px: 2, }}
+          px: 2,
+          m: 0,
+          p: 0, }}
       >
-        <Paper elevation={4} sx={{ borderRadius: 4, width: { xs: '100%', sm: '80%', md: '50%' }, p: 4 ,backgroundColor: 'rgba(255,255,255,0.9)',backdropFilter: 'blur(4px)',}}>
+        <Paper elevation={4} sx={{ borderRadius: 4, width: { xs: '70%', sm: '50%', md: '30%' }, p: 4 ,backgroundColor: 'rgba(255,255,255,0.9)',zIndex: 1}}>
           <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: '#3f51b5'  }}>
-            New Registration
+            <br></br>New Registration
           </Typography>
 
           <TextField fullWidth label="Name" name="Name" variant="outlined" required onChange={inputHandler} /><br /><br />

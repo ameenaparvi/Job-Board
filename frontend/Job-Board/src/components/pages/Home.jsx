@@ -3,13 +3,18 @@ import { Box, Button, Container, Grid, Typography, Paper } from '@mui/material';
 
 const Home = () => {
   return (
+
     <Box
-      sx={{
-        backgroundColor: '#f5f7fa',
-        py: 6,
+        sx={{
         minHeight: '100vh',
-      }}
+        backgroundImage: `url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        py: 6, }}
     >
+
+    
       <Container maxWidth="lg">
         {/* Hero Section */}
         <Paper
@@ -144,6 +149,7 @@ const Home = () => {
         </Paper>
       </Container>
     </Box>
+  
   );
 };
 

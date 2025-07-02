@@ -27,10 +27,15 @@ const Admin = ({setIsAuthenticated, setUserName}) => {
     <Box
      sx={{
         minHeight: '100vh',
-        backgroundColor: '#f5f7fa',
+        backgroundImage:  `url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
+  overflowX: 'hidden',
       }}
     >
       <Paper elevation={4} sx={{ padding: 4, width: 350, backgroundColor: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(4px)' ,borderRadius: 4}}>

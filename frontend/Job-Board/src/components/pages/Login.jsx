@@ -35,13 +35,22 @@ const Login = ({setIsAuthenticated, setUserName}) => {
     <Box
      sx={{
         minHeight: '100vh',
+        width: '100vw',
+        m: 0,
+        p: 0,
+        position: 'relative',
+        backgroundImage: `url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         backgroundColor: '#f5f7fa',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       }}
     >
-      <Paper elevation={4} sx={{ padding: 4, width: 350, backgroundColor: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(4px)' ,borderRadius: 4}}>
+      
+      <Paper elevation={4} sx={{ position: 'relative',zIndex: 1,padding: 4, width: 350,borderRadius: 4, backgroundColor: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(4px)' ,}}>
         <Typography variant="h4" align="center" gutterBottom sx={{color: '#3f51b5',fontWeight: 600}}>
           Login
         </Typography>
