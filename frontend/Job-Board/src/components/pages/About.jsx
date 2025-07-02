@@ -4,12 +4,13 @@ import { Box, Typography, Container, Grid, Paper } from '@mui/material';
 const About = () => {
   return (
     <Box
-      sx={{
-        backgroundColor: '#f5f7fa',
-        color: '#333',
-        py: 6,
+        sx={{
         minHeight: '100vh',
-      }}
+        backgroundImage: `url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        py: 6, }}
     >
       <Container maxWidth="lg">
         {/* Intro Section */}

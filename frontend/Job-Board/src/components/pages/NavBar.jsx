@@ -12,8 +12,8 @@ const NavBar = ({ userName, setIsAuthenticated, setUserName }) => {
 
 
   return (
-    <Box sx={{ margin: '1rem',borderRadius: '16px',overflow: 'hidden',  }}>
-      <AppBar position="static" color="primary" sx={{ backgroundColor: '#3f51b5', borderRadius: '16px', }}>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" color="primary" sx={{ backgroundColor: '#3f51b5', borderRadius: 0, }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Logo / Title */}
           <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#fff' }}>

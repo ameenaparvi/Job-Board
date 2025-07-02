@@ -37,7 +37,20 @@ export const HomePage = () => {
   
   return (
 <div>
-<Box sx={{ backgroundColor: '#f5f7fa', minHeight: '100vh', px: 2, py: 4 }}>
+<Box
+      sx={{
+        minHeight: '100vh',
+        width: '100vw',
+        m: 0,
+        p: 0,
+        position: 'relative',
+        backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1470&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      
       <Box sx={{ maxWidth: 600, mx: 'auto', mb: 4  }}>
         <Autocomplete freeSolo options={jobs.map((job)=>job.title)} 
                onInputChange={(event,value)=>setSearchTerm(value)} renderInput={(params)=>(
@@ -111,6 +124,7 @@ export const HomePage = () => {
         ))}
       </Grid>
     </Box>
+  
     </div>
   );
 };
