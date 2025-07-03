@@ -48,6 +48,8 @@ export const HomePage = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+         px: 2,
+  py: 4
       }}
     >
       

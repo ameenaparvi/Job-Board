@@ -9,8 +9,16 @@ const JobDetailPage = () => {
   if (!job) return <Typography>No job selected.</Typography>;
 
   return (
-    <Box sx={{ minHeight: '100vh', backgroundColor: '#f5f7fa', py: 4, px: 2 }}>
-      <Paper elevation={6} sx={{ maxWidth: 700, mx: 'auto', p: 4, borderRadius: 4 }}>
+    <Box sx={{ minHeight: '100vh', width: '100vw',           // ensures background covers full width
+    backgroundColor: '#f5f7fa',
+    display: 'flex',
+    justifyContent: 'center', // center horizontally
+    alignItems: 'flex-start', // stick to the top
+    pt: 10,                   // top spacing (64px + some breathing room)
+    px: 2,                    // horizontal padding
+    boxSizing: 'border-box',  // make sure padding doesn’t overflow
+    overflowX: 'hidden' }}>
+      <Paper elevation={6} sx={{ width: 900, mx: 'auto', p: 4, borderRadius: 4 }}>
         <Typography variant="h4" gutterBottom sx={{ color: '#3f51b5' }}>
           {job.title}
         </Typography>

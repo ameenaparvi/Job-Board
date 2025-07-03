@@ -27,14 +27,19 @@ const Admin = ({setIsAuthenticated, setUserName}) => {
     <Box
      sx={{
         minHeight: '100vh',
+        display: 'flex',
+    flexDirection: 'column',
+     width: '100vw',
+        m: 0,
+        p: 0,
         backgroundImage:  `url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1470&q=80')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        display: 'flex',
+
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%',
+        
   overflowX: 'hidden',
       }}
     >

@@ -6,6 +6,12 @@ const About = () => {
     <Box
         sx={{
         minHeight: '100vh',
+         display: 'flex',
+    flexDirection: 'column',
+     width: '100vw',
+        m: 0,
+        p: 0,
+        position: 'relative',
         backgroundImage: `url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1470&q=80')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

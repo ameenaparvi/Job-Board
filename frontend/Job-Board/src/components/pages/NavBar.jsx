@@ -12,7 +12,7 @@ const NavBar = ({ userName, setIsAuthenticated, setUserName }) => {
 
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ width:'100vw',p:'0',m:'0'}}>
       <AppBar position="static" color="primary" sx={{ backgroundColor: '#3f51b5', borderRadius: 0, }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Logo / Title */}

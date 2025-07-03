@@ -51,6 +51,11 @@ const deleteHandler = async (id) => {
 <Box sx={{ 
   backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1470&q=80')`,
   backgroundSize: 'cover',
+ // display: 'flex',
+ flexDirection: 'column',
+     width: '100vw',
+        m: 0,
+        p: 0,
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   minHeight: '100vh',
@@ -65,7 +70,7 @@ const deleteHandler = async (id) => {
       </Box>
 
     
-      <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold', mb: 4, color: '#3f51b5'  }}>
+      <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold', mb: 4, color: '#5C6BC0'  }}>
         🚀 Added Job Listings
       </Typography>
 
