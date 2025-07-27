@@ -88,6 +88,7 @@ app.put("/update/:id", async (req, res) => {
 
 
 // Start server
-app.listen(3004, () => {
+const PORT = process.env.PORT || 3004;
+app.listen(PORT,"0.0.0.0", () => {
   console.log("Server is running on port 3004");
 });
