@@ -9,9 +9,10 @@ export const HomePage = () => {
   const [jobs, setJob] = useState([]);
   const[searchTerm,setSearchTerm]=useState('');
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    axios.get('http://localhost:3004/jobs')
+ const API_URL = import.meta.env.VITE_API_URL;
+
+useEffect(() => {
+  axios.get(`${API_URL}/jobs`)
       .then((res) => {
         setJob(res.data);
       })

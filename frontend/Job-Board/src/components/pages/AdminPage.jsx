@@ -21,13 +21,16 @@ export const AdminPage = () => {
   }
   setLoading(true);
   try {
-    if (location.state && location.state.job) {
-      const res = await axios.put(`http://localhost:3004/update/${location.state.job._id}`, job);
-      alert(res.data.message);
-    } else {
-      const res = await axios.post("http://localhost:3004/add", job);
-      alert(res.data.message);
-    }
+    const API_URL = import.meta.env.VITE_API_URL;
+
+if (location.state && location.state.job) {
+  const res = await axios.put(`${API_URL}/update/${location.state.job._id}`, job);
+  alert(res.data.message);
+} else {
+  const res = await axios.post(`${API_URL}/add`, job);
+  alert(res.data.message);
+}
+
     navigate("/aj");
   }
     catch (err) {

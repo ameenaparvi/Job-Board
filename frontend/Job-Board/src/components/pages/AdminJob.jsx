@@ -12,38 +12,32 @@ export const AdminJob = () => {
   const[searchTerm,setSearchTerm]=useState('');
   const navigate = useNavigate();
   
-  useEffect(() => {
-    axios.get('http://localhost:3004/jobs')
-      .then((res) => {
-        setJob(res.data);
-      })
-      .catch((err) => {
-        console.error('Error fetching jobs:', err);
-      });
-  }, []);
+  const API_URL = import.meta.env.VITE_API_URL;
 
-  const filteredJobs=jobs.filter((job)=>
-    job.title.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+useEffect(() => {
+  axios.get(`${API_URL}/jobs`)
+    .then((res) => {
+      setJob(res.data);
+    })
+    .catch((err) => {
+      console.error('Error fetching jobs:', err);
+    });
+}, []);
+
 const deleteHandler = async (id) => {
-    const confirmDelete = window.confirm(
-      'Are you sure you want to delete this job?'
-    );
-    if (!confirmDelete) return;
+  const confirmDelete = window.confirm('Are you sure you want to delete this job?');
+  if (!confirmDelete) return;
 
-    try {
-      const { data } = await axios.delete(
-        `http://localhost:3004/delete/${id}`
-      );
-      alert(data.message); // e.g. "Job deleted successfully"
+  try {
+    const { data } = await axios.delete(`${API_URL}/delete/${id}`);
+    alert(data.message);
+    setJob((prev) => prev.filter((job) => job._id !== id));
+  } catch (err) {
+    console.error('❌ Delete failed:', err);
+    alert('Failed to delete the job');
+  }
+};
 
-      // Remove the job from UI
-      setJob((prev) => prev.filter((job) => job._id !== id));
-    } catch (err) {
-      console.error('❌ Delete failed:', err);
-      alert('Failed to delete the job');
-    }
-  };
  
   
   return (

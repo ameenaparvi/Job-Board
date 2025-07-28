@@ -12,7 +12,9 @@ const Login = ({setIsAuthenticated, setUserName}) => {
 
   const handleLogin=async ()=>{
     try{
-       const res = await axios.post("http://localhost:3004/login", {
+       const API_URL = import.meta.env.VITE_API_URL;
+
+const res = await axios.post(`${API_URL}/login`, {
         Name: typedName,
         password,
     });

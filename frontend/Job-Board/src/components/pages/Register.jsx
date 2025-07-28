@@ -28,7 +28,8 @@ const Register = () => {
       alert("Please fill out the required fields");
       return;
     }
-    axios.post("http://localhost:3004/register", emp)
+const API_URL = import.meta.env.VITE_API_URL;
+   axios.post(`${API_URL}/register`, emp)
       .then((res) => {
         setSuccessMsg(res.data.message || "Registration successful!");
         alert("Registration successfull")
