@@ -3,6 +3,7 @@ const cors = require('cors');
 require("./connection");
 const JobModel = require("./model/job");
 const UserModel = require("./model/user");
+module.exports = app;
 
 const app = express();
 app.use(cors());
@@ -88,7 +89,4 @@ app.put("/update/:id", async (req, res) => {
 
 
 // Start server
-const PORT = process.env.PORT || 3004;
-app.listen(PORT,"0.0.0.0", () => {
-  console.log("Server is running on port 3004");
-});
+
