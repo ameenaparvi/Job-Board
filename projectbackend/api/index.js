@@ -1,9 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-require("./connection");
-const JobModel = require("./model/job");
-const UserModel = require("./model/user");
-module.exports = app;
+require("../connection");
+const JobModel = require("../model/job");
+const UserModel = require("../model/user");
 
 const app = express();
 app.use(cors());
@@ -89,4 +88,5 @@ app.put("/update/:id", async (req, res) => {
 
 
 // Start server
+module.exports = app;
 
