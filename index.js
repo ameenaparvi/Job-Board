@@ -1,4 +1,8 @@
 const app = require('./api/index.js');
 const serverless = require('serverless-http');
 
-module.exports.handler = serverless(app);
+const handler = serverless(app);
+
+// Export formats supported by @vercel/node
+module.exports = handler;
+module.exports.default = handler;

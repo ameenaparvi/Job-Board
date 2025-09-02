@@ -1,12 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-require("../connection");
+const db = require("../connection");
 const JobModel = require("../model/job");
 const UserModel = require("../model/user");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Health and test routes
+app.get('/health', async (req, res) => {
+  try {
+    await db; // ensure DB ready
+    res.json({ ok: true, status: 'healthy' });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e?.message || 'db error' });
+  }
+});
 
 // Test routes
 app.get('/hello', (req, res) => {
